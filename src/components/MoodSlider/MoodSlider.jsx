@@ -1,12 +1,23 @@
-import React, { useState } from 'react';
-import styles from './MoodSliderStyling.module.css';
+import React, { useState } from "react";
+import styles from "./MoodSliderStyling.module.css";
+
+const moodLabels = [
+  { id: 0, icon: "✈️", text: "3/4" },
+  { id: 1, icon: "⏻", text: "Off" },
+  { id: 2, icon: "🧭", text: "4/4" },
+];
 
 const MoodSlider = () => {
-  const [value, setValue] = useState(1); // 0 = 3/4, 1 = Off, 2 = 4/4
+  const [value, setValue] = useState(1);
+
+  // Calculate gradient position
+  const percentage = (value / 2) * 100; // since max=2
+  const sliderStyle = {
+    background: `linear-gradient(to bottom, var(--primary-color) ${percentage}%, #000 ${percentage}%)`
+  };
 
   return (
     <div className={styles.container}>
-      {/* Vertical slider */}
       <input
         type="range"
         min="0"
@@ -15,20 +26,26 @@ const MoodSlider = () => {
         value={value}
         onChange={(e) => setValue(Number(e.target.value))}
         className={styles.slider}
+        style={sliderStyle} // dynamic background
       />
 
-      {/* Notches */}
       <div className={styles.notches}>
-        <div className={styles.line}></div>
-        <div className={styles.line}></div>
-        <div className={styles.line}></div>
+        {moodLabels.map((_, index) => (
+          <div key={index} className={styles.line}></div>
+        ))}
       </div>
 
-      {/* Labels */}
       <div className={styles.labels}>
-        <span className={styles.labelTop}>✈️ 3/4</span>
-        <span className={styles.labelCenter}>⏻ Off</span>
-        <span className={styles.labelBottom}>🧭 4/4</span>
+        {moodLabels.map(({ id, icon, text }) => (
+          <span
+            key={id}
+            className={`${styles.label} ${
+              value === id ? styles.activeLabel : ""
+            }`}
+          >
+            {icon} {text}
+          </span>
+        ))}
       </div>
     </div>
   );

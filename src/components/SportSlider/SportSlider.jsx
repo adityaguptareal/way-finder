@@ -4,6 +4,19 @@ import styles from './SportSliderStyling.module.css';
 const SportSlider = () => {
   const [value, setValue] = useState(0); // 0 = Adventure (top), 1 = Relaxation (bottom)
 
+  const handleChange = (e) => {
+    const val = Number(e.target.value);
+    setValue(val);
+
+    // Dynamically update the rod fill gradient
+    const percentage = val * 100;
+    e.target.style.background = `linear-gradient(
+      to bottom,
+      var(--primary-color) ${percentage}%,
+      var(--rod-base-color) ${percentage}%
+    )`;
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.verticalWrapper}>
@@ -21,8 +34,15 @@ const SportSlider = () => {
           max="1"
           step="0.01"
           value={value}
-          onChange={(e) => setValue(Number(e.target.value))}
+          onChange={handleChange}
           className={styles.slider}
+          style={{
+            background: `linear-gradient(
+              to bottom,
+              var(--primary-color) ${value * 100}%,
+              var(--rod-base-color) ${value * 100}%
+            )`,
+          }}
         />
 
         <div

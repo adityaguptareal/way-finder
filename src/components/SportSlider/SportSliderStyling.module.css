@@ -1,3 +1,8 @@
+:root {
+  --primary-color: #00ff88;
+  --rod-base-color: #000; /* Deep black base */
+}
+
 .container {
   display: flex;
   flex-direction: row;
@@ -23,22 +28,22 @@
   font-size: 14px;
   font-weight: 500;
   white-space: nowrap;
-  color: #e0e0e0;
+  color: #b0b0b0;
   transition: all 0.3s ease;
 }
 
 .activeLabel {
-  color: #00ffc8;
-  text-shadow: 0 0 8px #00ffc8;
+  color: var(--primary-color);
+  text-shadow: 0 0 8px var(--primary-color);
   animation: pulseGlow 1.2s ease-in-out infinite alternate;
 }
 
 @keyframes pulseGlow {
   0% {
-    text-shadow: 0 0 4px #00ffc8;
+    text-shadow: 0 0 4px var(--primary-color);
   }
   100% {
-    text-shadow: 0 0 10px #00ffc8;
+    text-shadow: 0 0 12px var(--primary-color);
   }
 }
 
@@ -48,43 +53,45 @@
   -webkit-appearance: none;
   writing-mode: vertical-lr;
   height: 140px;
-  width: 4px;
-  background: linear-gradient(to bottom, rgba(176, 176, 176, 0.8), rgba(224, 224, 224, 0.9));
+  width: 6px;
   border-radius: 10px;
   outline: none;
-  transform: rotate(180deg);
   cursor: pointer;
+
+  /* Default glossy black look */
+  background: linear-gradient(to bottom, var(--primary-color) 0%, var(--rod-base-color) 0%);
   box-shadow:
-    inset 0 0 4px rgba(255, 255, 255, 0.6),
-    0 0 5px rgba(0, 255, 180, 0.1);
-  transition: all 0.3s ease;
+    inset 0 0 6px rgba(255, 255, 255, 0.15), /* inner shine */
+    inset 0 0 10px rgba(0, 0, 0, 0.8),       /* depth */
+    0 0 4px rgba(0, 0, 0, 0.5);              /* outer shadow */
+  transition: box-shadow 0.25s ease, background 0.25s ease;
 }
 
 .slider:active {
   box-shadow:
-    inset 0 0 5px rgba(255, 255, 255, 0.9),
-    0 0 10px rgba(0, 255, 136, 0.3);
+    inset 0 0 8px rgba(255, 255, 255, 0.25),
+    inset 0 0 14px rgba(0, 0, 0, 0.9),
+    0 0 8px rgba(0, 255, 136, 0.3);
 }
 
-/* Webkit thumb (Chrome, Safari) */
+/* Webkit thumb */
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background: radial-gradient(circle, #ffffff, #e0e0e0);
-  border: 2px solid #00ffc8;
+  background: radial-gradient(circle, #ffffff, #dcdcdc);
+  border: 2px solid var(--primary-color);
   box-shadow: 0 0 8px rgba(0, 255, 224, 0.7);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .slider::-webkit-slider-thumb:hover,
 .slider::-webkit-slider-thumb:active {
-  transform: scale(1.2);
-  background: #ffffff;
-  border-color: #00ff88;
-  box-shadow: 0 0 12px #00ffcc;
+  transform: scale(1.15);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 12px var(--primary-color);
 }
 
 /* Firefox thumb */
@@ -92,49 +99,24 @@
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background: radial-gradient(circle, #ffffff, #e0e0e0);
-  border: 2px solid #00ffc8;
+  background: radial-gradient(circle, #ffffff, #dcdcdc);
+  border: 2px solid var(--primary-color);
   box-shadow: 0 0 8px rgba(0, 255, 224, 0.7);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .slider::-moz-range-thumb:hover,
 .slider::-moz-range-thumb:active {
-  transform: scale(1.2);
-  border-color: #00ff88;
-  box-shadow: 0 0 12px #00ffcc;
+  transform: scale(1.15);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 12px var(--primary-color);
 }
 
 /* Firefox track */
 .slider::-moz-range-track {
-  background: linear-gradient(to bottom, rgba(176, 176, 176, 0.8), rgba(224, 224, 224, 0.9));
+  background: linear-gradient(to bottom, var(--primary-color) 0%, var(--rod-base-color) 0%);
   border-radius: 10px;
-}
-
-/* Decorative notches (if used) */
-.notches {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 140px;
-  margin-left: 2px;
-}
-
-.circle {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background-color: #ccc;
-}
-
-/* Labels beside the slider (if used) */
-.labels {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 140px;
-  margin-left: 8px;
 }
 
 /* Responsive styling */
@@ -144,7 +126,6 @@
   }
 
   .slider,
-  .notches,
   .labels {
     height: 100px;
   }
@@ -161,7 +142,6 @@
   }
 
   .slider,
-  .notches,
   .labels {
     height: 80px;
   }
