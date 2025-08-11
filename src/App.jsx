@@ -1,9 +1,10 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
-import './App.css';
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
 
-import TestComponents from './pages/TestComponents'; // Make sure this path is correct
+import TestComponents from "./pages/TestComponents"; // Make sure this path is correct
+import InstrumentController from "./components/InstrumentController/InstrumentController";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -13,9 +14,10 @@ function App() {
       <div>
         {/* You can optionally show logos or state here */}
         {/* Example: <img src={reactLogo} alt="React Logo" /> */}
-        
+
         {/* Replace the placeholder text with your component */}
-        <TestComponents />
+        {/* <TestComponents /> */}
+        <InstrumentController topLabel={"Guitar"} bottomLabel={"Piano"}/>
       </div>
     </>
   );
