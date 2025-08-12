@@ -1,20 +1,29 @@
-import React from 'react';
-import Button from './Button';
-import ToggleSwitch from './ToggleSwitch';
-import { FiRotateCcw } from 'react-icons/fi';
-import './App.css';
 
-const App = () => {
-  return (
-    <div className="app-container">
-      <Button label="Reset" icon={<FiRotateCcw />} variant="gray" />
-      <Button label="Save playlist" variant="green" />
-      <ToggleSwitch />
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
 
-    </div>
+import TestComponents from "./pages/TestComponents"; // Make sure this path is correct
+import InstrumentController from "./components/InstrumentController/InstrumentController";
+import BPMController from "./components/BPMController/BPMController";
+import BPMToggle from "./components/BPMToggle/BPMToggle";
+import MoodSlider from "./components/MoodSlider/MoodSlider";
+import SportSlider from "./components/SportSlider/SportSlider";
+
+function App() {
+  const [count, setCount] = useState(0);
+    <>
+      <div style={{display:"flex",justifyContent:"center",alignItems:"center", gap:"100px"}}>
+        <SportSlider />
+        <MoodSlider />
+        <BPMToggle />
+        <BPMController />
+        <InstrumentController topLabel={"Electronics"} bottomLabel={"Acoustic"} />
+      </div>
+    </>
   );
-};
+}
 
 export default App;
-
 
