@@ -12,7 +12,6 @@ import MoodSlider from "./components/MoodSlider/MoodSlider";
 import SportSlider from "./components/SportSlider/SportSlider";
 
 function App() {
-  const [count, setCount] = useState(0);
     <>
       <div style={{display:"flex",justifyContent:"center",alignItems:"center", gap:"100px"}}>
         <SportSlider />
