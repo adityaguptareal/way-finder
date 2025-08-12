@@ -75,13 +75,7 @@
 }
 
 /* active section highlight */
-.activeSection {
-  border-radius: 14px;
-  padding: 10px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
-  box-shadow: 0 6px 22px rgba(0,198,107,0.06), inset 0 1px 0 rgba(255,255,255,0.02);
-  border: 1px solid rgba(0,198,107,0.14);
-}
+
 
 /* Section header (clickable) */
 .sectionHeader {
@@ -104,9 +98,10 @@
   width: 100%;
   margin-top: 80px;
   display: flex;
-  justify-content: center;
-  flex: 0 0 0; /* fill available height for vertical centering */
+  justify-content: flex-end; /* align items to the right */
+  flex: 1 0 auto;            /* fill available height for vertical centering */
 }
+
 
 /* layout choices for controls */
 .controlsGridColumns {
@@ -130,17 +125,38 @@
 
 /* sport toggle center */
 .bpmToggleCentered {
+  position: absolute;    /* take out of normal flow */
+  top: 50%;             /* move top edge to 50% viewport height */
+  left: 50%;            /* move left edge to 50% viewport width */
+  transform: translate(-50%, -50%);  /* shift back by half own size to truly center */
+
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100px;
+  width: fit-content;   /* shrink width to content */
 }
 
-/* slider full width below toggle */
-.bpmFullWidth {
-  width: 100%;
+
+.bpmToggleCentered {
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 100px;
+  width: 100%;
+  max-width: 700px;
+  margin-left: 20px; /* moves it 20px to the right */
 }
+
+
+.bpmFullWidth {
+  width: 700px;          /* fixed width */
+  margin-left: auto;     /* push to right inside container */
+  margin-top: 150px;      /* space below button */
+  display: end;
+  justify-content: flex-end; /* align content inside to right */
+}
+
 .bpmFullWidth > * {
   flex: 1;
   max-width: 600px;
@@ -154,10 +170,11 @@
   align-items:center;
   gap: 10px;
   border-radius: 12px;
-  padding: 8px 6px;
+  padding: 8px 64px;
   background: linear-gradient(180deg, rgba(255,255,255,0.012), rgba(0,0,0,0.02));
   border: 1px solid rgba(255,255,255,0.03);
   transition: all var(--transition);
+  
 }
 
 .sliderTop {
