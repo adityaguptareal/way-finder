@@ -9,19 +9,16 @@ import BPMController from "./components/BPMController/BPMController";
 import BPMToggle from "./components/BPMToggle/BPMToggle";
 import MoodSlider from "./components/MoodSlider/MoodSlider";
 import SportSlider from "./components/SportSlider/SportSlider";
+import FilterPage from "./pages/FilterPage";
+import Home from "./pages/Home";
 
 function App() {
   const [count, setCount] = useState(0);
 
-  return (
+ 
+  return( 
     <>
-      <div style={{display:"flex",justifyContent:"center",alignItems:"center", gap:"100px"}}>
-        <SportSlider />
-        <MoodSlider />
-        <BPMToggle />
-        <BPMController />
-        <InstrumentController topLabel={"Electronics"} bottomLabel={"Acoustic"} />
-      </div>
+    <Home></Home>
     </>
   );
 }
