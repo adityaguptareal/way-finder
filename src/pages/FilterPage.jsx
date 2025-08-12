@@ -5,9 +5,12 @@ import BPMController from "../components/BPMController/BPMController";
 import BPMToggle from "../components/BPMToggle/BPMToggle";
 import MoodSlider from "../components/MoodSlider/MoodSlider";
 import SportSlider from "../components/SportSlider/SportSlider";
+import Button from "../components/Button/Button"; 
+import ToggleSwitch from "../components/Toggleswitch/ToggleSwitch";
 
 const FilterPage = () => {
   return (
+    
     <div style={{ padding: "20px", backgroundColor: "#111", color: "#fff", minHeight: "100vh" }}>
       {/* Header */}
       <h2 style={{ marginBottom: "20px" }}>Filters</h2>
@@ -41,24 +44,14 @@ const FilterPage = () => {
         {/* BPM Controller */}
         <div style={{ textAlign: "center" }}>
           <BPMController />
+          <ToggleSwitch/>
+          <Button/>
+          
         </div>
       </div>
 
       {/* Save playlist button */}
-      <div style={{ textAlign: "center" }}>
-        <button
-          style={{
-            backgroundColor: "limegreen",
-            color: "white",
-            padding: "12px 30px",
-            border: "none",
-            borderRadius: "25px",
-            cursor: "pointer",
-            fontSize: "16px",
-          }}
-        >
-          Save playlist
-        </button>
+      <div>
       </div>
     </div>
   );
