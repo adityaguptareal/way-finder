@@ -4,7 +4,7 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 
-import TestComponents from "./pages/TestComponents"; // Make sure this path is correct
+import TestComponents from "./pages/TestComponents"; 
 import InstrumentController from "./components/InstrumentController/InstrumentController";
 import BPMController from "./components/BPMController/BPMController";
 import BPMToggle from "./components/BPMToggle/BPMToggle";
@@ -22,7 +22,7 @@ function App() {
         <InstrumentController topLabel={"Electronics"} bottomLabel={"Acoustic"} />
       </div>
     </>
-  );
+  ;
 }
 
 export default App;
