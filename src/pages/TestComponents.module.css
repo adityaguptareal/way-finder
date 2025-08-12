@@ -1,0 +1,109 @@
+.container {
+  background-color: black;
+  color: white;
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  gap: 1rem;
+  border-bottom: 1px solid #1f2937;
+}
+
+.backButton {
+  padding: 0.5rem;
+  border-radius: 9999px;
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.backButton:hover {
+  background-color: #1f2937;
+}
+
+.headerTextRow {
+  display: flex;
+  align-items: baseline;
+  gap: 2rem;
+  overflow: hidden;
+}
+
+.headerTitle {
+  color: white;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.headerSubtitle {
+  color: #9ca3af;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.trackCount {
+padding: 0.5rem 1rem;
+  text-align: left; 
+}
+
+.trackCount span {
+  color: #9ca3af;
+  font-size: 0.875rem;
+}
+
+.trackList {
+  padding: 0 1rem;
+}
+
+.trackItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #111827;
+}
+
+.albumArt {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.25rem;
+  object-fit: cover;
+}
+
+.songInfo {
+  flex: 1;
+}
+
+.songTitle {
+  color: white;
+  font-weight: 500;
+  padding: 0.25rem 1rem;
+  text-align: left; 
+}
+
+.songArtist {
+  color: #9ca3af;
+  font-size: 0.875rem;
+  padding: 0.125rem 1rem;
+  text-align: left; 
+}
+
+.playButton {
+  padding: 0.5rem;
+  border-radius: 9999px;
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.playButton:hover {
+  background-color: #1f2937;
+}
+
+.spotifyIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
